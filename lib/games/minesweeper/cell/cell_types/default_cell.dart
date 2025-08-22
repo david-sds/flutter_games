@@ -25,7 +25,7 @@ class DefaultCell extends StatelessWidget {
     return CellShell(
       state: state,
       size: cellSize,
-      color: Colors.blue,
+      color: Theme.of(context).colorScheme.primary,
       onLeftClick: () {
         if (state.isBomb) {
           onChangeState(

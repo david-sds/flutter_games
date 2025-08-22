@@ -8,7 +8,7 @@ class MinesweeperScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Minesweeper'),
+        title: const Text('Flutter Games'),
       ),
       body: const Minesweeper(
         initialDifficulty: Difficulty.classic,

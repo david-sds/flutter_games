@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_games/core/themes.dart';
 import 'package:flutter_games/router/router.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -19,15 +20,10 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Minesweeper App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-        ),
-        appBarTheme: const AppBarTheme().copyWith(
-          color: Colors.blue,
-        ),
-      ),
+      title: 'Flutter Games',
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.light,
       routerConfig: router,
     );
   }

@@ -154,7 +154,10 @@ class _MinesweeperState extends State<Minesweeper> {
                           width: 12,
                         ),
                         Chip(
-                          avatar: const Icon(Icons.schedule),
+                          avatar: Icon(
+                            Icons.schedule,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
                           label: Cronometer(
                             controller: _cronometerController,
                           ),
@@ -206,9 +209,8 @@ class _MinesweeperState extends State<Minesweeper> {
         }),
         Expanded(
           child: LayoutBuilder(builder: (context, constraints) {
-            return Container(
+            return SizedBox(
               width: double.infinity,
-              color: Colors.grey[600],
               child: Center(
                 child: Scrollbar(
                   controller: _scrollController,

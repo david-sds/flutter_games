@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_games/core/router/router.dart';
 import 'package:flutter_games/core/themes.dart';
-import 'package:flutter_games/router/router.dart';
 import 'package:universal_html/html.dart' as html;
 
 class App extends StatefulWidget {

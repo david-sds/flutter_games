@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_games/games/minesweeper/board/board.dart';
+import 'package:flutter_games/games/minesweeper/board/minesweeper_board.dart';
 import 'package:flutter_games/games/minesweeper/cronometer/cronometer.dart';
 import 'package:flutter_games/games/minesweeper/cronometer/cronometer_controller.dart';
 import 'package:flutter_games/games/minesweeper/face/face.dart';
@@ -223,7 +223,7 @@ class _MinesweeperState extends State<Minesweeper> {
                         Observer(builder: (context) {
                           return Padding(
                             padding: EdgeInsets.all(contentPadding),
-                            child: Board(
+                            child: MinesweeperBoard(
                               boardState: ctrl.boardState,
                               gameState: ctrl.gameState,
                               isHorizontalView: isHorizontalView,

@@ -4,8 +4,8 @@ import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart'
 import 'package:flutter_games/games/minesweeper/cell/neighbor_cells/neighbor_cells.dart';
 import 'package:flutter_games/games/minesweeper/face/face.dart';
 
-class Board extends StatelessWidget {
-  const Board({
+class MinesweeperBoard extends StatelessWidget {
+  const MinesweeperBoard({
     required this.boardState,
     required this.gameState,
     required this.cellSize,

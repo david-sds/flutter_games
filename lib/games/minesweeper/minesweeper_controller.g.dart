@@ -16,11 +16,11 @@ mixin _$MinesweeperController on MinesweeperControllerBase, Store {
       (_$difficultyComputed ??= Computed<Difficulty>(() => super.difficulty,
               name: 'MinesweeperControllerBase.difficulty'))
           .value;
-  Computed<List<List<CellState>>>? _$boardStateComputed;
+  Computed<List<List<MinesweeperCellState>>>? _$boardStateComputed;
 
   @override
-  List<List<CellState>> get boardState => (_$boardStateComputed ??=
-          Computed<List<List<CellState>>>(() => super.boardState,
+  List<List<MinesweeperCellState>> get boardState => (_$boardStateComputed ??=
+          Computed<List<List<MinesweeperCellState>>>(() => super.boardState,
               name: 'MinesweeperControllerBase.boardState'))
       .value;
   Computed<GameState>? _$gameStateComputed;
@@ -58,13 +58,13 @@ mixin _$MinesweeperController on MinesweeperControllerBase, Store {
       Atom(name: 'MinesweeperControllerBase._boardState', context: context);
 
   @override
-  List<List<CellState>> get _boardState {
+  List<List<MinesweeperCellState>> get _boardState {
     _$_boardStateAtom.reportRead();
     return super._boardState;
   }
 
   @override
-  set _boardState(List<List<CellState>> value) {
+  set _boardState(List<List<MinesweeperCellState>> value) {
     _$_boardStateAtom.reportWrite(value, super._boardState, () {
       super._boardState = value;
     });
@@ -96,7 +96,7 @@ mixin _$MinesweeperController on MinesweeperControllerBase, Store {
   }
 
   @override
-  void updateCellStates(List<CellState> values) {
+  void updateCellStates(List<MinesweeperCellState> values) {
     final _$actionInfo = _$MinesweeperControllerBaseActionController
         .startAction(name: 'MinesweeperControllerBase.updateCellStates');
     try {
@@ -107,7 +107,7 @@ mixin _$MinesweeperController on MinesweeperControllerBase, Store {
   }
 
   @override
-  void updateCellState(CellState value) {
+  void updateCellState(MinesweeperCellState value) {
     final _$actionInfo = _$MinesweeperControllerBaseActionController
         .startAction(name: 'MinesweeperControllerBase.updateCellState');
     try {
@@ -118,7 +118,7 @@ mixin _$MinesweeperController on MinesweeperControllerBase, Store {
   }
 
   @override
-  void clearSurroundingCells(CellState value) {
+  void clearSurroundingCells(MinesweeperCellState value) {
     final _$actionInfo = _$MinesweeperControllerBaseActionController
         .startAction(name: 'MinesweeperControllerBase.clearSurroundingCells');
     try {

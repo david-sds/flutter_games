@@ -23,7 +23,7 @@ enum Routes {
 }
 
 final router = GoRouter(
-  initialLocation: Routes.minesweeper.path,
+  initialLocation: Routes.sudoku.path,
   routes: [
     ShellRoute(
       builder: (context, state, child) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 
 class NeighborCells {
   NeighborCells({
@@ -13,16 +13,16 @@ class NeighborCells {
     this.topLeft,
   });
 
-  CellState? top;
-  CellState? topRight;
-  CellState? right;
-  CellState? bottomRight;
-  CellState? bottom;
-  CellState? bottomLeft;
-  CellState? left;
-  CellState? topLeft;
+  MinesweeperCellState? top;
+  MinesweeperCellState? topRight;
+  MinesweeperCellState? right;
+  MinesweeperCellState? bottomRight;
+  MinesweeperCellState? bottom;
+  MinesweeperCellState? bottomLeft;
+  MinesweeperCellState? left;
+  MinesweeperCellState? topLeft;
 
-  List<CellState?> get values => [
+  List<MinesweeperCellState?> get values => [
         top,
         topRight,
         right,
@@ -59,14 +59,14 @@ class NeighborCells {
   }
 
   NeighborCells copyWith({
-    CellState? top,
-    CellState? topRight,
-    CellState? right,
-    CellState? bottomRight,
-    CellState? bottom,
-    CellState? bottomLeft,
-    CellState? left,
-    CellState? topLeft,
+    MinesweeperCellState? top,
+    MinesweeperCellState? topRight,
+    MinesweeperCellState? right,
+    MinesweeperCellState? bottomRight,
+    MinesweeperCellState? bottom,
+    MinesweeperCellState? bottomLeft,
+    MinesweeperCellState? left,
+    MinesweeperCellState? topLeft,
   }) {
     return NeighborCells(
       top: top ?? this.top,

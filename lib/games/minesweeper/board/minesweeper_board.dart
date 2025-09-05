@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 import 'package:flutter_games/games/minesweeper/cell/neighbor_cells/neighbor_cells.dart';
 import 'package:flutter_games/games/minesweeper/face/face.dart';
 
@@ -16,13 +16,13 @@ class MinesweeperBoard extends StatelessWidget {
     super.key,
   });
 
-  final List<List<CellState>> boardState;
+  final List<List<MinesweeperCellState>> boardState;
   final GameState gameState;
   final double cellSize;
   final bool isHorizontalView;
-  final NeighborCells Function(CellState state) onGetNeighborCells;
-  final void Function(CellState state) onUpdateCellState;
-  final void Function(CellState state) onClearSurroundingCells;
+  final NeighborCells Function(MinesweeperCellState state) onGetNeighborCells;
+  final void Function(MinesweeperCellState state) onUpdateCellState;
+  final void Function(MinesweeperCellState state) onClearSurroundingCells;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter_games/games/minesweeper/cell/cell.dart';
 
-class CellState {
-  CellState({
+class MinesweeperCellState {
+  MinesweeperCellState({
     required this.x,
     required this.y,
     required this.isBomb,
@@ -13,13 +13,13 @@ class CellState {
   bool isBomb;
   CellStateTypes type;
 
-  CellState copyWith({
+  MinesweeperCellState copyWith({
     int? x,
     int? y,
     bool? isBomb,
     CellStateTypes? type,
   }) {
-    return CellState(
+    return MinesweeperCellState(
       x: x ?? this.x,
       y: y ?? this.y,
       isBomb: isBomb ?? this.isBomb,

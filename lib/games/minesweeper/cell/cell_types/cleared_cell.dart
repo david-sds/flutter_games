@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell_shell/cell_shell.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 import 'package:flutter_games/games/minesweeper/cell/neighbor_cells/neighbor_cells.dart';
 
 class ClearedCell extends StatelessWidget {
@@ -14,9 +14,9 @@ class ClearedCell extends StatelessWidget {
   });
 
   final double cellSize;
-  final CellState state;
+  final MinesweeperCellState state;
   final NeighborCells neighborCells;
-  final void Function(CellState) onClearSurroundingCells;
+  final void Function(MinesweeperCellState) onClearSurroundingCells;
   final bool showHover;
 
   @override

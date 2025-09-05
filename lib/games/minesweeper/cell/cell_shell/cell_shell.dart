@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 
 class CellShell extends StatelessWidget {
   const CellShell({
@@ -19,7 +19,7 @@ class CellShell extends StatelessWidget {
     super.key,
   });
 
-  final CellState state;
+  final MinesweeperCellState state;
   final Color? color;
   final double size;
   final Widget? image;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell_shell/cell_shell.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 
 class ExplodedCell extends StatelessWidget {
   const ExplodedCell({
@@ -11,8 +11,8 @@ class ExplodedCell extends StatelessWidget {
   });
 
   final double cellSize;
-  final CellState state;
-  final void Function(CellState) onChangeState;
+  final MinesweeperCellState state;
+  final void Function(MinesweeperCellState) onChangeState;
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 import 'package:flutter_games/games/minesweeper/cell/neighbor_cells/neighbor_cells.dart';
 import 'package:flutter_games/games/minesweeper/face/face.dart';
 import 'package:flutter_games/games/minesweeper/minesweeper.dart';
@@ -22,21 +22,21 @@ abstract class MinesweeperControllerBase with Store {
   }
 
   @observable
-  List<List<CellState>> _boardState = [];
+  List<List<MinesweeperCellState>> _boardState = [];
   @computed
-  List<List<CellState>> get boardState => _boardState;
+  List<List<MinesweeperCellState>> get boardState => _boardState;
 
   @action
   void initBoard(Difficulty difficulty) {
     try {
       _difficulty = difficulty;
-      final boardState = <List<CellState>>[];
+      final boardState = <List<MinesweeperCellState>>[];
 
       for (var i = 0; i < _difficulty.x; i++) {
         boardState.add([]);
         for (var j = 0; j < _difficulty.y; j++) {
           boardState[i].add(
-            CellState(
+            MinesweeperCellState(
               x: i,
               y: j,
               type: CellStateTypes.default_,
@@ -95,7 +95,7 @@ abstract class MinesweeperControllerBase with Store {
   }
 
   @action
-  void updateCellStates(List<CellState> values) {
+  void updateCellStates(List<MinesweeperCellState> values) {
     try {
       final boardState = [..._boardState];
       for (final value in values) {
@@ -108,10 +108,10 @@ abstract class MinesweeperControllerBase with Store {
   }
 
   @action
-  void updateCellState(CellState value) => updateCellStates([value]);
+  void updateCellState(MinesweeperCellState value) => updateCellStates([value]);
 
   @action
-  void clearSurroundingCells(CellState value) {
+  void clearSurroundingCells(MinesweeperCellState value) {
     try {
       final neighborCells = getNeighborCells(value);
 
@@ -153,7 +153,7 @@ abstract class MinesweeperControllerBase with Store {
   }
 
   void clearAllSurroundingEmptyCells({
-    required CellState value,
+    required MinesweeperCellState value,
   }) {
     final cellsToUpdate = getClearAllSurroundingEmptyCells(
       value: value,
@@ -167,10 +167,10 @@ abstract class MinesweeperControllerBase with Store {
     );
   }
 
-  List<CellState>? getClearAllSurroundingEmptyCells({
-    required CellState value,
-    required List<CellState> visitedCells,
-    required List<CellState> cellsToVisit,
+  List<MinesweeperCellState>? getClearAllSurroundingEmptyCells({
+    required MinesweeperCellState value,
+    required List<MinesweeperCellState> visitedCells,
+    required List<MinesweeperCellState> cellsToVisit,
   }) {
     cellsToVisit.remove(value);
     visitedCells.add(value);
@@ -183,7 +183,7 @@ abstract class MinesweeperControllerBase with Store {
     }
 
     cellsToVisit.addAll(
-      neighborCells.values.whereType<CellState>().where(
+      neighborCells.values.whereType<MinesweeperCellState>().where(
         (cell) {
           final isVisited = visitedCells.any(
             (e) => e.x == cell.x && e.y == cell.y,
@@ -208,7 +208,7 @@ abstract class MinesweeperControllerBase with Store {
     return visitedCells;
   }
 
-  NeighborCells getNeighborCells(CellState value) {
+  NeighborCells getNeighborCells(MinesweeperCellState value) {
     try {
       final isTopmostRow = value.y == 0;
       final isBottommostRow = value.y == difficulty.y - 1;

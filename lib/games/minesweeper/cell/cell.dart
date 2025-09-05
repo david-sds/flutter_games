@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_games/games/minesweeper/cell/cell_state/cell_state.dart';
+import 'package:flutter_games/games/minesweeper/cell/cell_state/minesweeper_cell_state.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell_types/cleared_cell.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell_types/default_cell.dart';
 import 'package:flutter_games/games/minesweeper/cell/cell_types/exploded_cell.dart';
@@ -27,11 +27,11 @@ class Cell extends StatelessWidget {
     super.key,
   });
 
-  final CellState state;
+  final MinesweeperCellState state;
   final GameState gameState;
   final NeighborCells neighborCells;
-  final void Function(CellState) onChangeState;
-  final void Function(CellState) onClearSurroundingCells;
+  final void Function(MinesweeperCellState) onChangeState;
+  final void Function(MinesweeperCellState) onClearSurroundingCells;
   final double cellSize;
 
   @override
